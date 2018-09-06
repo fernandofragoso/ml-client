@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import queryString from 'query-string';
 import { searchTerm } from '../../services/api';
+import { getCurrency } from '../../utils/utils';
+import Categories from '../../components/Categories/Categories';
+import SearchItem from '../../components/SearchItem/SearchItem';
 import './Search.css';
 
 class Search extends Component {
@@ -28,12 +31,8 @@ class Search extends Component {
   render() {
     return (
       <div className='Search'>
-        {this.state.categories.map((category, index) => {
-          return <span key={index}> > {category}</span>
-        })}
-        <ul>
-          {this.state.items.map(item => <li key={item.id}>{item.title} ({item.price.amount})</li>)}
-        </ul>
+        <Categories categories={this.state.categories} />
+        {this.state.items.map(item => <SearchItem key={item.id} item={item} />)}
       </div>
     );
   }

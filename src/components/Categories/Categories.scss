@@ -1,0 +1,15 @@
+.Categories {
+  display: flex;
+  margin: 16px 0;
+  color: #999;
+
+  &__item {
+    margin-right: 10px;
+    font-size: 14px;
+
+    &:not(:last-of-type):after {
+      margin-left: 10px;
+      content: '>'
+    }
+  }
+}

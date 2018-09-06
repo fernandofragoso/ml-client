@@ -3,9 +3,9 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
-import Home from './components/Home/Home';
-import Search from './components/Search/Search';
-import Item from './components/Item/Item';
+import Home from './views/Home/Home';
+import Search from './views/Search/Search';
+import Item from './views/Item/Item';
 import SearchBar from './components/SearchBar/SearchBar';
 import './App.css';
 

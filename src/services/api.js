@@ -4,9 +4,8 @@ const URL = `${BASE_URL}:${PORT}`;
 const SEARCH_ITEMS = '/api/items?q=';
 const GET_ITEM = '/api/items'
 
-export const searchTerm = (term) => {
-  // console.log('oi' + URL + SEARCH_ITEMS + 'q=' + term);
-  return fetch(`${URL}${SEARCH_ITEMS}${term}`).then(res => res.json());
+export const searchTerm = async (term) => {
+  return fetch(`${URL}${SEARCH_ITEMS}${term}`);
 }
 
 export const getItem = async (id) => {
