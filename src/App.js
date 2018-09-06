@@ -11,18 +11,18 @@ import './App.css';
 
 class App extends Component {
 
-  search() {
-    console.log('search');
-  }
-
   render() {
     return (
       <Router>
         <div className='App'>
-          <SearchBar />
-          <Route exact path='/' component={Home}/>
-          <Route exact path='/items' component={Search}/>
-          <Route path='/items/:id' component={Item}/>
+          <header className='App__header'>
+            <Route path='/' component={SearchBar}/>
+          </header>
+          <div className='App__content'>
+            <Route exact path='/' component={Home}/>
+            <Route exact path='/items' component={Search}/>
+            <Route path='/items/:id' component={Item}/>
+          </div>
         </div>
       </Router>
     );

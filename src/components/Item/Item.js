@@ -5,7 +5,7 @@ class Item extends Component {
   render() {
     return (
       <div className='Item'>
-        <h3>Item {this.props.location.id}</h3>
+        <h3>Item {this.props.match.params.id}</h3>
       </div>
     );
   }
