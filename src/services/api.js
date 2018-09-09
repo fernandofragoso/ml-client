@@ -5,9 +5,9 @@ const SEARCH_ITEMS = '/api/items?q=';
 const GET_ITEM = '/api/items'
 
 export const searchTerm = async (term) => {
-  return fetch(`${URL}${SEARCH_ITEMS}${term}`);
+  return fetch(`${URL}${SEARCH_ITEMS}${term}`).then(res => res.json());
 }
 
 export const getItem = async (id) => {
-  return fetch(`${URL}${GET_ITEM}/${id}`);
+  return fetch(`${URL}${GET_ITEM}/${id}`).then(res => res.json());
 }

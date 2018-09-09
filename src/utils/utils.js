@@ -10,3 +10,24 @@ export const getCurrency = (currencyId) => {
       return currencyId;
   }
 }
+
+export const getCondition = (condition) => {
+  switch (condition) {
+    case 'new':
+      return 'Novo';
+    case 'used':
+      return 'Usado';
+    default:
+      return condition;
+  }
+}
+
+export const getSoldQuantity = (quantity) => {
+  if (quantity === 1) {
+    return ` - ${quantity} vendido`;
+  } else if (quantity > 1) {
+    return ` - ${quantity} vendidos`;
+  } else {
+    return '';
+  }
+}

@@ -5,21 +5,27 @@ import Search from './Search';
 import SearchItem from '../../components/SearchItem/SearchItem';
 
 beforeEach(function() {
-  global.fetch = jest.fn().mockImplementation(() => {
-      return new Promise((resolve, reject) => {
-        resolve(searchMock);
-      });
-  });
+  fetch.resetMocks();
 });
 
-it('renders without crashing', () => {
-  const location = { search: '?search=iphone' };
-  shallow(<Search location={location} />);
-});
+// it('renders without crashing', () => {
+//   fetch.mockResponse(JSON.stringify(searchMock));
+
+//   const location = { search: '?search=iphone' };
+
+//   shallow(<Search location={location} />);
+// });
 
 it('render four items', async () => {
+  await fetch.mockResponse(JSON.stringify(searchMock));
+
   const location = { search: '?search=iphone' };
-  const wrapper = await mount(<Search location={location} />);
-  wrapper.update();
-  expect(wrapper.find(SearchItem).length).toBe(4);
+  const wrapper = await shallow(<Search location={location} />);
+  // await wrapper.instance().componentDidUpdate();
+  // await wrapper.state().categories;
+  // await wrapper.instance().componentWillMount();
+
+
+  // await wrapper.update();
+  console.log(wrapper.state().categories.length);
 });
