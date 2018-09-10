@@ -35,17 +35,29 @@ class Item extends Component {
 
   _getParameterAndSearch() {
     const id = this.props.match.params.id;
-    this._getItem(id);
+    if (id) {
+      this._getItem(id);
+    } else {
+      this._goToHome();
+    } 
+  }
+
+  _goToHome() {
+    this.props.history.push('/');
   }
 
   async _getItem(id) {
-    const { item } = await getItem(id);
-    document.title = `Mercado Livre | ${item.title}`;
-    this.setState({
-      item,
-      price: item.price,
-      isLoading: false
-    });
+    try {
+      const { item } = await getItem(id);
+      document.title = `Mercado Livre | ${item.title}`;
+      this.setState({
+        item,
+        price: item.price,
+        isLoading: false
+      });
+    } catch(err) {
+      this._goToHome();
+    }
   }
 }
 

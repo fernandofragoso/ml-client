@@ -53,18 +53,30 @@ class Search extends Component {
 
   _getParameterAndSearch() {
     const { search } = queryString.parse(this.props.location.search);
-    this._search(search);
+    if (search) {
+      this._search(search);
+    } else {
+      this._goToHome();
+    }
+  }
+
+  _goToHome() {
+    this.props.history.push('/');
   }
 
   async _search(term) {
-    const { items, categories } = await searchTerm(term);
-    document.title = `Mercado Livre | Busca por '${term}'`;
-    this.setState({
-      term,
-      items,
-      categories,
-      isLoading: false
-    });
+    try {
+      const { items, categories } = await searchTerm(term);
+      document.title = `Mercado Livre | Busca por '${term}'`;
+      this.setState({
+        term,
+        items,
+        categories,
+        isLoading: false
+      });
+    } catch(err) {
+      this._toToHome();
+    }
   }
 }
 

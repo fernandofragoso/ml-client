@@ -22,7 +22,7 @@ class SearchBar extends Component {
             placeholder='Buscar produtos, marcas e muito mais...' 
             value={this.state.value}
             onChange={(event) => this._handleChange(event)}
-            onKeyPress={(event) => (event.key === 'Enter') ? this._handleSearch() : null}/>
+            onKeyPress={(event) => (event.key === 'Enter' && this.state.value) ? this._handleSearch() : null}/>
           <button onClick={() => this._handleSearch()} disabled={!this.state.value}>
             <img src='/images/ic_search.png' alt='Buscar'/>
           </button>
