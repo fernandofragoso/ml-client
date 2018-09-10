@@ -1,6 +1,8 @@
-const BASE_URL = 'http://localhost';
-const PORT = '3001';
-const URL = `${BASE_URL}:${PORT}`;
+import { API_URL, API_PORT } from '../config';
+
+const BASE_URL = API_URL;
+const PORT = API_PORT;
+const URL = (PORT) ? `${BASE_URL}:${PORT}` : BASE_URL;
 const SEARCH_ITEMS = '/api/items?q=';
 const GET_ITEM = '/api/items'
 

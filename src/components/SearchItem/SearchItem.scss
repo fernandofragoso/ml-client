@@ -1,6 +1,7 @@
 @import "../../variables.scss";
 
 .SearchItem {
+  cursor: pointer;
   display: flex;
   background-color: $white-color;
   padding: 16px;
