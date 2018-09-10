@@ -75,7 +75,7 @@ class Search extends Component {
         isLoading: false
       });
     } catch(err) {
-      this._toToHome();
+      this._goToHome();
     }
   }
 }
