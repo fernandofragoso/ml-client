@@ -16,7 +16,7 @@ class DetailsItem extends Component {
               {getCondition(this.props.condition)}
               {getSoldQuantity(this.props.sold_quantity)}
             </div>
-            <div className='DetailsItem__title'>{this.props.title}</div>
+            <div className='DetailsItem__title'><h1>{this.props.title}</h1></div>
             <div className='DetailsItem__price'>
               {getCurrency(this.props.currency)}
               {this.props.amount}
