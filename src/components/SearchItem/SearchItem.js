@@ -8,19 +8,19 @@ class SearchItem extends Component {
     return (
       <article className='SearchItem' onClick={this.props.onClick}>
         <div className='SearchItem__thumb'>
-          <img src={this.props.item.picture} alt={this.props.item.title} />
+          <img src={this.props.picture} alt={this.props.title} />
         </div>
         <div className='SearchItem__content'>
           <div className='SearchItem__price'>
-            {getCurrency(this.props.item.price.currency)} {this.props.item.price.amount}
-            {this.props.item.free_shipping && <img src='/images/ic_shipping.png' alt='Frete Grátis' />}
+            {getCurrency(this.props.currency)} {this.props.amount}
+            {this.props.free_shipping && <img src='/images/ic_shipping.png' alt='Frete Grátis' />}
           </div>
-          <div>
-            {this.props.item.title}
+          <div className='SearchItem__item'>
+            {this.props.title}
           </div>
         </div>
         <div className='SearchItem__location'>
-          {this.props.item.state}
+          {this.props.state}
         </div>
       </article>
     )

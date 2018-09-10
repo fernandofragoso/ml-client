@@ -27,5 +27,4 @@ it('render four items', async () => {
 
 
   // await wrapper.update();
-  console.log(wrapper.state().categories.length);
 });

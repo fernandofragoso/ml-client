@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DetailsItem from '../../components/DetailsItem/DetailsItem';
 import { getItem } from '../../services/api';
+import Loading from '../../components/Loading/Loading';
 import './Item.css';
 
 class Item extends Component {
@@ -22,7 +23,12 @@ class Item extends Component {
   render() {
     return (
       <div className='Item'>
-        <DetailsItem item={this.state.item} price={this.state.price} />
+        {!this.state.isLoading &&
+          <DetailsItem {...this.state.item} {...this.state.price} />
+        }
+        {this.state.isLoading &&
+          <Loading />
+        }
       </div>
     );
   }
@@ -34,7 +40,6 @@ class Item extends Component {
 
   async _getItem(id) {
     const { item } = await getItem(id);
-    console.log(item.price.amount);
     document.title = `Mercado Livre | ${item.title}`;
     this.setState({
       item,

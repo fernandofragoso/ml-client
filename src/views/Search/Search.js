@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import queryString from 'query-string';
 import { searchTerm } from '../../services/api';
+import Loading from '../../components/Loading/Loading';
 import Categories from '../../components/Categories/Categories';
 import SearchItem from '../../components/SearchItem/SearchItem';
 import './Search.css';
@@ -23,6 +24,11 @@ class Search extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.location.search !== prevProps.location.search) {
+      this.setState({
+        items: [],
+        categories: [],
+        isLoading: true
+      });
       this._getParameterAndSearch();
     }
   }
@@ -31,7 +37,10 @@ class Search extends Component {
     return (
       <div className='Search'>
         <Categories categories={this.state.categories} />
-        {this.state.items.map(item => <SearchItem onClick={() => this._handleClick(item.id)} key={item.id} item={item} />)}
+        {this.state.items.map(item => <SearchItem onClick={() => this._handleClick(item.id)} key={item.id} {...item} {...item.price} />)}
+        {this.state.isLoading && 
+          <Loading />
+        }
       </div>
     );
   }

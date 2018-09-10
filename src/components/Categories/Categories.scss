@@ -1,7 +1,10 @@
+@import "../../variables.scss";
+
 .Categories {
   display: flex;
-  margin: 16px 0;
+  margin: $small-spacing 0;
   color: #999;
+  flex-wrap: wrap;
 
   &__item {
     margin-right: 10px;

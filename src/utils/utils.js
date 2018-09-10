@@ -7,7 +7,15 @@ export const getCurrency = (currencyId) => {
     case 'EUR':
       return '€';
     default:
-      return currencyId;
+      return '$';
+  }
+}
+
+export const getDecimals = (decimals) => {
+  if (decimals) {
+    return (decimals < 10) ? `0${decimals.toString()}` : decimals.toString();
+  } else {
+    return '00';
   }
 }
 
