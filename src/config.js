@@ -1,2 +1,2 @@
-export const API_URL = 'http://localhost'
-export const API_PORT = '3001';
+export const API_URL = 'https://ml-api-fernando.herokuapp.com';
+export const API_PORT = null;
